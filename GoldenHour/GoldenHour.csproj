@@ -118,5 +118,8 @@
   <ItemGroup>
     <Resource Include="images\user-icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Script\DBScript.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
