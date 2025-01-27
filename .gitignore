@@ -1,0 +1,108 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+ipch/
+*.pdb
+*.opendb
+
+# Build results
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.ilk
+*.log
+*.exp
+*.o
+*.iobj
+*.ipdb
+*.rsp
+*.tlb
+*.tlog
+*.log
+*.mdb
+
+# Entity Framework Migrations
+Migrations/
+*.edmx.diagram
+*.edmx.sql
+*.edmx
+DatabaseGeneratedCode/
+
+# Package managers
+packages/
+node_modules/
+
+# NuGet
+*.nupkg
+.project.lock.json
+*.nuget.props
+*.nuget.targets
+.nuget/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ASP.NET Core / WPF 
+appsettings.json
+appsettings.Development.json
+secrets.json
+
+# Rider / ReSharper
+.idea/
+*.DotSettings
+*.DotSettings.user
+
+# Logs
+*.log
+logs/
+*.tlog
+
+# Test output
+TestResults/
+coverage/
+.coverage
+.coveragexml
+
+# Publish output
+publish/
+*.publish.xml
+
+# Temporary files
+_temp/
+.tmp/
+*.cache
+*.diff
+*.orig
+*.rej
+
+# JetBrains Rider / Resharper
+.idea/
+*.DotSettings
+*.DotSettings.user
+
+# Visual Studio Code
+.vscode/
+.vscode/*
+.history/
+
+# Local DB files
+*.mdf
+*.ldf
+*.sdf
+
+# WPF-specific files
+*.g.i.cs
+*.g.cs
+*.xaml.cs
+GeneratedFiles/
+
+# EF Core command-line migration files
+*.snapshot
