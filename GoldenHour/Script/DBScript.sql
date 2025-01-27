@@ -1,11 +1,11 @@
 ﻿create table GT_User(
-usu_idUser int primary key identity ,
-usu_firstname varchar(250) ,
-usu_lastName varchar(250),
-usu_password varchar(500),
-usu_username varchar(50),
-usu_dateIni date ,
-usu_status int  
+usu__idUser int primary key identity ,
+usu__firstname varchar(250) ,
+usu__lastName varchar(250),
+usu__password varchar(500),
+usu__username varchar(50),
+usu__dateIni date ,
+usu__status int  
 );
 
 create table GT_Module(
@@ -22,7 +22,7 @@ fk_idModule int ,
 aum_status int ,
 aum_date date ,
 
-foreign key (fk_idUser) references GT_User(usu_idUser),
+foreign key (fk_idUser) references GT_User(usu__idUser),
 foreign key (fk_idModule) references GT_Module(mod_idModule)
 
 )
@@ -88,7 +88,7 @@ rec_status int ,
 fk_idUser int ,
 fk_idPayment int ,
 fk_idModifier int ,
-foreign key (fk_idUser) references GT_User(usu_idUser),
+foreign key (fk_idUser) references GT_User(usu__idUser),
 foreign key (fk_idPayment)references GT_Payment (pay_idPayment),
 foreign key (fk_idModifier) references GT_Modifier(mdf_idModifier)
 )
