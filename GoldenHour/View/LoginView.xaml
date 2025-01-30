@@ -36,9 +36,9 @@
 			Opacity=".95">
 			<Border.BorderBrush>
 				<LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-					<GradientStop Color="LightGoldenrodYellow" Offset="0"></GradientStop>
-					<GradientStop Color="Gold" Offset=".75"></GradientStop>
-					<GradientStop Color="PaleGoldenrod" Offset="1"></GradientStop>
+					<GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
+					<GradientStop Color="{StaticResource winBorderColor2}" Offset="0.5"/>
+					<GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
 
 				</LinearGradientBrush>
 			</Border.BorderBrush>
