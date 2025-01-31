@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GoldenHour"
-		xmlns:viewModel="clr-namespace:GoldenHour.ViewModel" xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+		xmlns:viewModel="clr-namespace:GoldenHour.ViewModel" xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" xmlns:local1="clr-namespace:GoldenHour.View"
 		mc:Ignorable="d"
 
         Title="Menu" Height="450" Width="800"
@@ -16,7 +16,16 @@
 	<Window.DataContext>
 		<viewModel:MainViewModel/>
 	</Window.DataContext>
+	<Window.Resources>
 
+		<DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+			<local1:HomeView/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type viewModel:CustomerViewModel}">
+			<local1:CustomerView/>
+		</DataTemplate>
+
+	</Window.Resources>
 	<Border CornerRadius="10"
 	BorderThickness="1"
 	>
@@ -140,7 +149,90 @@
                                 Background="Transparent"
                                 Margin="0,0,5,0"
                                 MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown"
-                                MouseEnter="pnlControlBar_MouseEnter"/>
+                                MouseEnter="pnlControlBar_MouseEnter">
+
+
+						<Button x:Name="btnClose" Style="{StaticResource controlButton}"
+								Tag="{StaticResource color4}"
+								Click="btnClose_Click">
+							<fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"></fa:IconImage>
+						</Button>
+						<Button x:Name="btnMaximize" Style="{StaticResource controlButton}"
+Tag="{StaticResource color4}"
+Click="btnMaximize_Click">
+							<fa:IconImage Icon="WindowMaximize" Style="{StaticResource controlButtonIcon}"></fa:IconImage>
+						</Button>
+
+
+						<Button x:Name="btnMinimize" Style="{StaticResource controlButton}"
+					Tag="{StaticResource color6}"
+					Click="btnMinimize_Click">
+							<fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"></fa:IconImage>
+						</Button>
+						
+					</StackPanel>
+
+					<Grid Grid.Row="1">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition/>
+							<ColumnDefinition/>
+						</Grid.ColumnDefinitions>
+
+						<!--Caption-->
+						<StackPanel Grid.Column="0"
+                                    Orientation="Horizontal"
+                                    VerticalAlignment="Center">
+							<fa:IconImage Icon="{Binding Icon}"
+                                          Height="20"
+                                          Width="20"
+                                          Foreground="{StaticResource titleColor2}"
+                                          Margin="35,0,10,0"/>
+
+							<TextBlock Text="{Binding Caption}"
+                                       Foreground="{StaticResource titleColor2}"
+                                       FontSize="16"
+                                       FontFamily="Montserrat"
+                                       FontWeight="Medium"
+                                       VerticalAlignment="Center"/>
+						</StackPanel>
+
+						<!--User options-->
+						<StackPanel Grid.Column="1"
+                                    Orientation="Horizontal"
+                                    FlowDirection="RightToLeft"
+                                    VerticalAlignment="Center"
+                                    Margin="0,0,10,0">
+							<Button Style="{StaticResource iconButton}"
+                                    Tag="{StaticResource color1}">
+								<fa:IconImage Icon="AngleDown"
+                                              Height="12" Width="12"
+                                              Style="{StaticResource iconButtonIcon}"/>
+							</Button>
+							<TextBlock Text="{Binding CurrentUserAccount.DisplayName}"
+                                       Foreground="{StaticResource titleColor3}"
+                                       FontFamily="Montserrat"
+                                       FontSize="12"
+                                       VerticalAlignment="Center"/>
+							
+							<Button Style="{StaticResource iconButton}"
+                                    Tag="{StaticResource color3}">
+								<fa:IconImage Icon="Clock" Style="{StaticResource iconButtonIcon}"/>
+							</Button>
+							<Button Style="{StaticResource iconButton}"
+                                    Tag="{StaticResource color4}">
+								<fa:IconImage Icon="Envelope" Style="{StaticResource iconButtonIcon}"/>
+							</Button>
+							<Button Style="{StaticResource iconButton}"
+                                    Tag="{StaticResource color5}">
+								<fa:IconImage Icon="Bell" Style="{StaticResource iconButtonIcon}"/>
+							</Button>
+						</StackPanel>
+
+					</Grid>
+					<!--Content section / Child views-->
+					<ContentControl Content="{Binding CurrentChildView}"
+                                    Grid.Row="2"
+                                    Margin="25"/>
 
 				</Grid>
 			</Border>
