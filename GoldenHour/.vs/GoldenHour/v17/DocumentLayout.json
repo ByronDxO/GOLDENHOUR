@@ -3,55 +3,107 @@
   "WorkspaceRootPath": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\view\\registerdataview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:view\\registerdataview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
-      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\viewmodel\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:viewmodel\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\viewmodel\\registerdataviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:viewmodel\\registerdataviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\viewmodel\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\viewmodel\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:viewmodel\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\viewmodel\\customerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\viewmodel\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:viewmodel\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\viewmodel\\customerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:viewmodel\\customerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\view\\homeview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\view\\homeview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:view\\homeview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\view\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\view\\customerview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:view\\customerview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\view\\registerdataview.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:view\\registerdataview.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\view\\homeview.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:view\\homeview.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\viewmodel\\viewmodelcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:viewmodel\\viewmodelcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\view\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:view\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\styles\\buttonstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:styles\\buttonstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\script\\dbscript.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:script\\dbscript.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\repositories\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:repositories\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\model\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:model\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\model\\useraccountmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:model\\useraccountmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\model\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:model\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\viewmodel\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:viewmodel\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\byron\\AppData\\Local\\Temp\\.vsdbgsrc\\8d2b9877d67815961d4da59952848bdeb757560693b4bf22ac5cc64f18774369\\FrameworkTemplate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\view\\customerview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:view\\customerview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\viewmodel\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:viewmodel\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\viewmodel\\viewmodelcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:viewmodel\\viewmodelcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\styles\\buttonstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:styles\\buttonstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\script\\dbscript.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:script\\dbscript.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -61,7 +113,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -69,38 +121,113 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
+              "Title": "CustomerViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\ViewModel\\CustomerViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModel\\CustomerViewModel.cs",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\ViewModel\\CustomerViewModel.cs",
+              "RelativeToolTip": "ViewModel\\CustomerViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-31T07:47:05.943Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HomeView.xaml",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\View\\HomeView.xaml",
+              "RelativeDocumentMoniker": "View\\HomeView.xaml",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\View\\HomeView.xaml",
+              "RelativeToolTip": "View\\HomeView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-31T07:46:20.783Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RegisterDataViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\ViewModel\\RegisterDataViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModel\\RegisterDataViewModel.cs",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\ViewModel\\RegisterDataViewModel.cs",
+              "RelativeToolTip": "ViewModel\\RegisterDataViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T08:53:49.506Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ButtonStyles.xaml",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Styles\\ButtonStyles.xaml",
+              "RelativeDocumentMoniker": "Styles\\ButtonStyles.xaml",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Styles\\ButtonStyles.xaml",
+              "RelativeToolTip": "Styles\\ButtonStyles.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-31T06:04:01.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ViewModelCommand.cs",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\ViewModel\\ViewModelCommand.cs",
+              "RelativeDocumentMoniker": "ViewModel\\ViewModelCommand.cs",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\ViewModel\\ViewModelCommand.cs",
+              "RelativeToolTip": "ViewModel\\ViewModelCommand.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAqwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-31T07:59:45.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-08T08:58:22.481Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-31T06:05:11.565Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "LoginViewModel.cs",
               "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\ViewModel\\LoginViewModel.cs",
               "RelativeDocumentMoniker": "ViewModel\\LoginViewModel.cs",
               "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\ViewModel\\LoginViewModel.cs",
               "RelativeToolTip": "ViewModel\\LoginViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-31T08:06:55.258Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "LoginView.xaml",
-              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\View\\LoginView.xaml",
-              "RelativeDocumentMoniker": "View\\LoginView.xaml",
-              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\View\\LoginView.xaml",
-              "RelativeToolTip": "View\\LoginView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-31T08:06:16.504Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MainViewModel.cs",
               "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\ViewModel\\MainViewModel.cs",
               "RelativeDocumentMoniker": "ViewModel\\MainViewModel.cs",
               "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\ViewModel\\MainViewModel.cs",
               "RelativeToolTip": "ViewModel\\MainViewModel.cs",
-              "ViewState": "AQIAAFIAAAAAAAAAAAAYwHUAAAAAAAAA",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAwwIAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-31T07:50:40.93Z",
               "EditorCaption": ""
@@ -120,31 +247,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "CustomerViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\ViewModel\\CustomerViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModel\\CustomerViewModel.cs",
-              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\ViewModel\\CustomerViewModel.cs",
-              "RelativeToolTip": "ViewModel\\CustomerViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAyAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T07:47:05.943Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "HomeView.xaml",
-              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\View\\HomeView.xaml",
-              "RelativeDocumentMoniker": "View\\HomeView.xaml",
-              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\View\\HomeView.xaml",
-              "RelativeToolTip": "View\\HomeView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-31T07:46:20.783Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "HomeViewModel.cs",
               "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\ViewModel\\HomeViewModel.cs",
               "RelativeDocumentMoniker": "ViewModel\\HomeViewModel.cs",
@@ -157,58 +259,122 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\MainWindow.xaml.cs",
-              "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T06:14:53.878Z",
+              "DocumentIndex": 15,
+              "Title": "DBScript.sql ",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Script\\DBScript.sql",
+              "RelativeDocumentMoniker": "Script\\DBScript.sql",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Script\\DBScript.sql",
+              "RelativeToolTip": "Script\\DBScript.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-02-08T09:03:54.044Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\MainWindow.xaml",
-              "RelativeToolTip": "MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-31T06:05:11.565Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "FrameworkTemplate.cs",
-              "DocumentMoniker": "C:\\Users\\byron\\AppData\\Local\\Temp\\.vsdbgsrc\\8d2b9877d67815961d4da59952848bdeb757560693b4bf22ac5cc64f18774369\\FrameworkTemplate.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\8d2b9877d67815961d4da59952848bdeb757560693b4bf22ac5cc64f18774369\\FrameworkTemplate.cs",
-              "ToolTip": "C:\\Users\\byron\\AppData\\Local\\Temp\\.vsdbgsrc\\8d2b9877d67815961d4da59952848bdeb757560693b4bf22ac5cc64f18774369\\FrameworkTemplate.cs [Solo lectura]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\8d2b9877d67815961d4da59952848bdeb757560693b4bf22ac5cc64f18774369\\FrameworkTemplate.cs [Solo lectura]",
-              "ViewState": "AQIAAPECAAAAAAAAAAAewGEDAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T08:01:52.56Z",
-              "EditorCaption": " [Solo lectura]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "ViewModelCommand.cs",
-              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\ViewModel\\ViewModelCommand.cs",
-              "RelativeDocumentMoniker": "ViewModel\\ViewModelCommand.cs",
-              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\ViewModel\\ViewModelCommand.cs",
-              "RelativeToolTip": "ViewModel\\ViewModelCommand.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "HomeView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\View\\HomeView.xaml.cs",
+              "RelativeDocumentMoniker": "View\\HomeView.xaml.cs",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\View\\HomeView.xaml.cs",
+              "RelativeToolTip": "View\\HomeView.xaml.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T07:59:45.194Z",
+              "WhenOpened": "2025-02-08T09:06:03.842Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
+              "Title": "LoginView.xaml",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\View\\LoginView.xaml",
+              "RelativeDocumentMoniker": "View\\LoginView.xaml",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\View\\LoginView.xaml",
+              "RelativeToolTip": "View\\LoginView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-31T08:06:16.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "Repositories\\UserRepository.cs",
+              "ViewState": "AQIAAFMAAAAAAAAAAAAuwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T09:03:48.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "RepositoryBase.cs",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Repositories\\RepositoryBase.cs",
+              "RelativeDocumentMoniker": "Repositories\\RepositoryBase.cs",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Repositories\\RepositoryBase.cs",
+              "RelativeToolTip": "Repositories\\RepositoryBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T09:03:44.296Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "UserModel.cs",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Model\\UserModel.cs",
+              "RelativeDocumentMoniker": "Model\\UserModel.cs",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Model\\UserModel.cs",
+              "RelativeToolTip": "Model\\UserModel.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T09:03:41.762Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "UserAccountModel.cs",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Model\\UserAccountModel.cs",
+              "RelativeDocumentMoniker": "Model\\UserAccountModel.cs",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Model\\UserAccountModel.cs",
+              "RelativeToolTip": "Model\\UserAccountModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T09:03:40.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Model\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "Model\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Model\\IUserRepository.cs",
+              "RelativeToolTip": "Model\\IUserRepository.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T09:03:37.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\App.config",
+              "RelativeDocumentMoniker": "App.config",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\App.config",
+              "RelativeToolTip": "App.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-02-08T09:02:09.647Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
               "Title": "ViewModelBase.cs",
               "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\ViewModel\\ViewModelBase.cs",
               "RelativeDocumentMoniker": "ViewModel\\ViewModelBase.cs",
@@ -221,15 +387,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ButtonStyles.xaml",
-              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Styles\\ButtonStyles.xaml",
-              "RelativeDocumentMoniker": "Styles\\ButtonStyles.xaml",
-              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Styles\\ButtonStyles.xaml",
-              "RelativeToolTip": "Styles\\ButtonStyles.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-31T06:04:01.095Z",
-              "EditorCaption": ""
+              "DocumentIndex": 23,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-31T06:14:53.878Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "FrameworkTemplate.cs",
+              "DocumentMoniker": "C:\\Users\\byron\\AppData\\Local\\Temp\\.vsdbgsrc\\8d2b9877d67815961d4da59952848bdeb757560693b4bf22ac5cc64f18774369\\FrameworkTemplate.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\8d2b9877d67815961d4da59952848bdeb757560693b4bf22ac5cc64f18774369\\FrameworkTemplate.cs",
+              "ToolTip": "C:\\Users\\byron\\AppData\\Local\\Temp\\.vsdbgsrc\\8d2b9877d67815961d4da59952848bdeb757560693b4bf22ac5cc64f18774369\\FrameworkTemplate.cs [Solo lectura]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\8d2b9877d67815961d4da59952848bdeb757560693b4bf22ac5cc64f18774369\\FrameworkTemplate.cs [Solo lectura]",
+              "ViewState": "AQIAAPECAAAAAAAAAAAewGEDAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-31T08:01:52.56Z",
+              "EditorCaption": " [Solo lectura]"
             }
           ]
         },
@@ -240,6 +419,52 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "60489c9a-591a-4538-8f47-3516febd4602",
+        "Display": 3,
+        "X": 372,
+        "Y": 194,
+        "Width": 1553,
+        "Height": 670,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "RegisterDataView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\View\\RegisterDataView.xaml.cs",
+              "RelativeDocumentMoniker": "View\\RegisterDataView.xaml.cs",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\View\\RegisterDataView.xaml.cs",
+              "RelativeToolTip": "View\\RegisterDataView.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T09:06:07.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RegisterDataView.xaml",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\View\\RegisterDataView.xaml",
+              "RelativeDocumentMoniker": "View\\RegisterDataView.xaml",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\View\\RegisterDataView.xaml",
+              "RelativeToolTip": "View\\RegisterDataView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-08T08:52:59.141Z",
+              "EditorCaption": ""
             }
           ]
         }

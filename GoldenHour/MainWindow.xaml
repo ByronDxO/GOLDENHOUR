@@ -24,6 +24,9 @@
 		<DataTemplate DataType="{x:Type viewModel:CustomerViewModel}">
 			<local1:CustomerView/>
 		</DataTemplate>
+		<DataTemplate DataType="{x:Type viewModel:RegisterDataViewModel}">
+			<local1:RegisterDataView/>
+		</DataTemplate>
 
 	</Window.Resources>
 	<Border CornerRadius="10"
@@ -96,7 +99,7 @@
 
 					<RadioButton Style="{StaticResource menuButton}"
              Tag="{StaticResource color2}"
-             Command="{Binding ShowCustomerViewCommand}">
+             Command="{Binding ShowRegisterDataViewCommand}">
 						<StackPanel Orientation="Horizontal">
 							<fa:IconImage Icon="PenToSquare" Style="{StaticResource menuButtonIcon}"/>
 							<TextBlock Text="Registrar Informacion" Style="{StaticResource menuButtonText}"/>
