@@ -24,6 +24,35 @@
 		<DataTemplate DataType="{x:Type viewModel:CustomerViewModel}">
 			<local1:CustomerView/>
 		</DataTemplate>
+		<DataTemplate DataType="{x:Type viewModel:RegisterDataViewModel}">
+			<local1:RegisterDataView/>
+		</DataTemplate>
+
+		<DataTemplate DataType="{x:Type viewModel:CategoriasSubViewModel}">
+			<local1:CategoriasSubView/>
+		</DataTemplate>
+
+		<DataTemplate DataType="{x:Type viewModel:ProductosSubViewModel}">
+			<local1:ShowProductosSubView/>
+		</DataTemplate>
+
+
+		<DataTemplate DataType="{x:Type viewModel:UsuarioSubViewModel}">
+			<local1:UsuarioSubView/>
+		</DataTemplate>
+
+
+		<DataTemplate DataType="{x:Type viewModel:ModificadoresSubViewModel}">
+			<local1:ModificadoresSubView/>
+		</DataTemplate>
+
+
+		<DataTemplate DataType="{x:Type viewModel:GenerateReceiptViewModel}">
+			<local1:GenerateReceiptView/>
+		</DataTemplate>
+
+
+
 
 	</Window.Resources>
 	<Border CornerRadius="10"
@@ -87,7 +116,7 @@
 					</RadioButton>
 					<RadioButton Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color2}"
-                                 Command="{Binding ShowCustomerViewCommand}">
+                                 Command="{Binding ShowGenerateReceiptViewCommand}">
 						<StackPanel Orientation="Horizontal">
 							<fa:IconImage Icon="MoneyBill1" Style="{StaticResource menuButtonIcon}"/>
 							<TextBlock Text="Generar Comprobante" Style="{StaticResource menuButtonText}"/>
@@ -96,7 +125,7 @@
 
 					<RadioButton Style="{StaticResource menuButton}"
              Tag="{StaticResource color2}"
-             Command="{Binding ShowCustomerViewCommand}">
+             Command="{Binding ShowRegisterDataViewCommand}">
 						<StackPanel Orientation="Horizontal">
 							<fa:IconImage Icon="PenToSquare" Style="{StaticResource menuButtonIcon}"/>
 							<TextBlock Text="Registrar Informacion" Style="{StaticResource menuButtonText}"/>
