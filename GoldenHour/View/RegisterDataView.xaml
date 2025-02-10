@@ -1,14 +1,51 @@
 ﻿<UserControl x:Class="GoldenHour.View.RegisterDataView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:GoldenHour.View"
+             xmlns:local="clr-namespace:GoldenHour.View" 
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 	<Grid>
+		<Grid.RowDefinitions>
+			<!-- Fila para la barra de navegación -->
+			<RowDefinition Height="Auto"/>
+			<!-- Fila para el contenido (sub views) -->
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
 
-		<Image Source="/images/logo2.jpg"/>
+		<!-- Barra de navegación usando UniformGrid para distribuir equitativamente el ancho -->
+		<UniformGrid Grid.Row="0" Columns="4" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="12">
+			<!-- Botón de Usuario -->
+			<Button Style="{StaticResource cardButton}"
+                    Content="Usuario"
+                    Tag="User"
+                    Margin="10"
+                    Command="{Binding ShowUsuarioSubViewCommand}" />
+			<!-- Botón de Categorías -->
+			<Button Style="{StaticResource cardButton}"
+                    Content="Categorías"
+                    Tag="List"
+                    Margin="10"
+                    Command="{Binding ShowCategoriasSubViewCommand}" />
+			<!-- Botón de Productos -->
+			<Button Style="{StaticResource cardButton}"
+                    Content="Productos"
+                    Tag="Box"
+                    Margin="10"
+                    Command="{Binding ShowProductosSubViewCommand}" />
+			<!-- Botón de Modificadores -->
+			<Button Style="{StaticResource cardButton}"
+                    Content="Modificadores"
+                    Tag="Cog"
+                    Margin="10"
+                    Command="{Binding ShowModificadoresSubViewCommand}" />
+		</UniformGrid>
+
+		<!-- Panel para mostrar el sub UserControl seleccionado -->
+		<ContentControl Grid.Row="1"
+                        Content="{Binding CurrentSubView}"
+                        Margin="10"/>
 	</Grid>
-
 </UserControl>

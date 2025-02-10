@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="GoldenHour.View.CategoriasSubView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GoldenHour.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+	<Grid Margin="20">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<!-- Fila para el campo Nombre -->
+			<RowDefinition Height="Auto"/>
+			<!-- Fila para el campo Descripción -->
+			<RowDefinition Height="Auto"/>
+			<!-- Fila para el botón Guardar -->
+			<RowDefinition Height="*"/>
+			<!-- Fila para el mensaje o espacio sobrante -->
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+
+		<!-- Campo para el Nombre -->
+		<Label Grid.Row="0" Grid.Column="0" Content="Nombre:" 
+               Style="{StaticResource formLabel}" VerticalAlignment="Center" Margin="5"/>
+		<TextBox Grid.Row="0" Grid.Column="1" 
+                 Text="{Binding CategoryName, UpdateSourceTrigger=PropertyChanged}" 
+                 Style="{StaticResource formTextBox}" Margin="5" />
+
+		<!-- Campo para la Descripción -->
+		<Label Grid.Row="1" Grid.Column="0" Content="Descripción:" 
+               Style="{StaticResource formLabel}" VerticalAlignment="Center" Margin="5"/>
+		<TextBox Grid.Row="1" Grid.Column="1" 
+                 Text="{Binding CategoryDescription, UpdateSourceTrigger=PropertyChanged}" 
+                 Style="{StaticResource formTextBox}" Margin="5" />
+
+		<!-- Botón para guardar la categoría -->
+		<Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                Content="Guardar Categoría" 
+                Command="{Binding SaveCategoryCommand}"
+                Style="{StaticResource cardButton}" 
+                HorizontalAlignment="Left" Margin="5,5,0,5" Width="189"/>
+
+		<!-- Mensaje de confirmación o error -->
+		<TextBlock Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                   Text="{Binding Mensaje}" 
+                   FontSize="16" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" 
+                   Margin="10"/>
+	</Grid>
+</UserControl>

@@ -1,0 +1,100 @@
+﻿<UserControl x:Class="GoldenHour.View.ShowProductosSubView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GoldenHour.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+	<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="20">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<!-- Nombre -->
+				<RowDefinition Height="Auto"/>
+				<!-- Descripción -->
+				<RowDefinition Height="Auto"/>
+				<!-- Total -->
+				<RowDefinition Height="Auto"/>
+				<!-- Stock -->
+				<RowDefinition Height="Auto"/>
+				<!-- Imagen (TextBox y botón) -->
+				<RowDefinition Height="Auto"/>
+				<!-- Categoría (ComboBox) -->
+				<RowDefinition Height="Auto"/>
+				<!-- Botón Guardar -->
+				<RowDefinition Height="*"/>
+				<!-- Mensaje -->
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+
+			<!-- Campo para el Nombre -->
+			<Label Grid.Row="0" Grid.Column="0" Content="Nombre:" 
+                   Style="{StaticResource formLabel}" VerticalAlignment="Center" Margin="5"/>
+			<TextBox Grid.Row="0" Grid.Column="1" 
+                     Text="{Binding ProductName, UpdateSourceTrigger=PropertyChanged}" 
+                     Style="{StaticResource formTextBox}" Margin="5" />
+
+			<!-- Campo para la Descripción -->
+			<Label Grid.Row="1" Grid.Column="0" Content="Descripción:" 
+                   Style="{StaticResource formLabel}" VerticalAlignment="Center" Margin="5"/>
+			<TextBox Grid.Row="1" Grid.Column="1" 
+                     Text="{Binding ProductDescription, UpdateSourceTrigger=PropertyChanged}" 
+                     Style="{StaticResource formTextBox}" Margin="5" />
+
+			<!-- Campo para el Total -->
+			<Label Grid.Row="2" Grid.Column="0" Content="Total:" 
+                   Style="{StaticResource formLabel}" VerticalAlignment="Center" Margin="5"/>
+			<TextBox Grid.Row="2" Grid.Column="1" 
+                     Text="{Binding ProductTotal, UpdateSourceTrigger=PropertyChanged}" 
+                     Style="{StaticResource formTextBox}" Margin="5" />
+
+			<!-- Campo para el Stock -->
+			<Label Grid.Row="3" Grid.Column="0" Content="Stock:" 
+                   Style="{StaticResource formLabel}" VerticalAlignment="Center" Margin="5"/>
+			<TextBox Grid.Row="3" Grid.Column="1" 
+                     Text="{Binding ProductStock, UpdateSourceTrigger=PropertyChanged}" 
+                     Style="{StaticResource formTextBox}" Margin="5" />
+
+			<!-- Campo para la Imagen: muestra la ruta y botón para subir imagen -->
+			<Label Grid.Row="4" Grid.Column="0" Content="Imagen:" 
+                   Style="{StaticResource formLabel}" VerticalAlignment="Center" Margin="5"/>
+			<StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" Margin="5">
+				<TextBox Width="200" 
+                         Text="{Binding ProductPathImage}" 
+                         Style="{StaticResource formTextBox}" 
+                         IsReadOnly="True" />
+				<Button Content="Subir imagen" 
+                        Command="{Binding UploadImageCommand}" 
+                        Margin="5"/>
+			</StackPanel>
+
+			<!-- ComboBox para seleccionar la Categoría -->
+			<Label Grid.Row="5" Grid.Column="0" Content="Categoría:" 
+                   Style="{StaticResource formLabel}" VerticalAlignment="Center" Margin="5"/>
+			<ComboBox Grid.Row="5" Grid.Column="1"
+                      ItemsSource="{Binding Categories}"
+                      SelectedItem="{Binding SelectedCategory}"
+                      DisplayMemberPath="cat_name"
+                      Style="{StaticResource formComboBox}" Margin="5"/>
+
+			<!-- Botón para guardar el producto -->
+			<Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+                    Content="Guardar Producto" 
+                    Command="{Binding SaveProductCommand}"
+                    Style="{StaticResource cardButton}" 
+                    HorizontalAlignment="Left" Margin="5" Width="150"/>
+
+			<!-- Mensaje de confirmación o error -->
+			<TextBlock Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"
+                       Text="{Binding Mensaje}" 
+                       FontSize="16" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" 
+                       Margin="10"/>
+		</Grid>
+	</ScrollViewer>
+</UserControl>
