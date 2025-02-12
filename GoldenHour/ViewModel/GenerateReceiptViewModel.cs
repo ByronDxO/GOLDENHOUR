@@ -210,7 +210,7 @@ namespace GoldenHour.ViewModel
             {
                 // Crear un documento PDF nuevo
                 PdfDocument document = new PdfDocument();
-                document.Info.Title = "Recibo";
+                document.Info.Title = "Recibo (Documento no Tributario)";
 
                 // Crear una página con ancho máximo de 55mm (~156 puntos)
                 PdfPage page = document.AddPage();
@@ -233,7 +233,7 @@ namespace GoldenHour.ViewModel
                 double posX = 5, posY = 5;
 
                 // El URI pack indica que la imagen se encuentra en el assembly actual, en la carpeta "images".
-                Uri uri = new Uri("pack://application:,,,/images/logo2.jpg", UriKind.Absolute);
+                Uri uri = new Uri("pack://application:,,,/images/logo4.jpg", UriKind.Absolute);
                 var resourceInfo = System.Windows.Application.GetResourceStream(uri);
                 if (resourceInfo == null)
                     throw new InvalidOperationException("No se encontró el recurso de la imagen.");
