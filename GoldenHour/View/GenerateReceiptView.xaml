@@ -122,7 +122,7 @@
 			<TextBlock Text="{Binding FinalTotal, StringFormat='Total Final: Q{0:N2}'}" 
                        VerticalAlignment="Center" Margin="5"/>
 			<Button Content="Generar Recibo" Margin="5" Padding="5"
-                    Command="{Binding GenerateReceiptCommand}"/>
+                    Command="{Binding PrintReceiptCommand}"/>
 		</StackPanel>
 	</Grid>
 </UserControl>

@@ -11,6 +11,11 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.IO;
+using System.Windows.Documents;
+using System.Windows.Media.Imaging;
+using System.Windows;
+using System.Printing;
+using System.Windows.Xps;
 
 
 namespace GoldenHour.ViewModel
@@ -78,7 +83,7 @@ namespace GoldenHour.ViewModel
         public ICommand AddToCartCommand { get; }
         public ICommand ContinueCommand { get; }
         public ICommand SelectCategoryCommand { get; } // Opcional, si quieres usarlo en lugar de manejar el click directo
-
+        public ICommand PrintReceiptCommand { get; }
 
         public ICommand RemoveFromCartCommand { get; }
 
@@ -106,6 +111,7 @@ namespace GoldenHour.ViewModel
             RemoveFromCartCommand = new ViewModelCommand(param => RemoveProductFromCart(param as CartItemViewModel));
             GenerateReceiptCommand = new ViewModelCommand(param => GenerateAndPrintReceipt());
 
+            PrintReceiptCommand = new ViewModelCommand(param => PrintReceiptUsingFlowDocument());
 
             // Cargar las categorías desde el repositorio o servicio
             LoadCategories();
@@ -206,8 +212,10 @@ namespace GoldenHour.ViewModel
 
         public void GenerateAndPrintReceipt()
         {
+
             try
             {
+                /*
                 // Crear un documento PDF nuevo
                 PdfDocument document = new PdfDocument();
                 document.Info.Title = "Recibo (Documento no Tributario)";
@@ -293,7 +301,7 @@ namespace GoldenHour.ViewModel
                     FileName = tempPath,
                     UseShellExecute = true // Esto abrirá el PDF con la aplicación predeterminada, que puede tener opción de imprimir
                 };
-                Process.Start(psi);
+                Process.Start(psi);*/
             }
             catch (Exception ex)
             {
@@ -301,6 +309,94 @@ namespace GoldenHour.ViewModel
                 Debug.WriteLine("Error al generar e imprimir el recibo: " + ex.Message);
             }
         }
+
+
+
+        public void PrintReceiptUsingFlowDocument()
+        {
+            try {
+            // Crear un FlowDocument y configurar sus propiedades
+            FlowDocument doc = new FlowDocument();
+            doc.PageWidth = 156; // 55 mm ≈ 156 puntos
+            doc.PagePadding = new Thickness(10);
+            doc.ColumnGap = 0;
+            doc.ColumnWidth = doc.PageWidth;
+
+            // 1. Agregar el logo desde los recursos
+            // Usamos un Pack URI para acceder al recurso embebido (asegúrate de que el archivo logo4.jpg esté configurado como Resource)
+            BitmapImage bitmap = new BitmapImage(new Uri("pack://application:,,,/images/logo5.jpg", UriKind.Absolute));
+            System.Windows.Controls.Image logoControl = new System.Windows.Controls.Image();
+            logoControl.Source = bitmap;
+            logoControl.Width = 100; // Ajusta el ancho deseado
+            logoControl.Stretch = Stretch.Uniform;
+            logoControl.HorizontalAlignment = HorizontalAlignment.Center; // Establecer aquí la alineación
+            BlockUIContainer logoContainer = new BlockUIContainer(logoControl);
+            doc.Blocks.Add(logoContainer);
+
+
+            // Agregar un espacio (salto de línea)
+            doc.Blocks.Add(new Paragraph(new Run("\n")));
+
+            // 2. Encabezado
+            Paragraph header = new Paragraph(new Run("Recibo (Documento no Tributario)"));
+            header.FontSize = 14;
+            header.FontWeight = FontWeights.Bold;
+            header.TextAlignment = TextAlignment.Center;
+            doc.Blocks.Add(header);
+
+            // 3. Fecha
+            Paragraph fecha = new Paragraph(new Run("Fecha: " + DateTime.Now.ToString("dd/MM/yyyy")));
+            fecha.FontSize = 10;
+            doc.Blocks.Add(fecha);
+
+            // 4. Ítems del carrito
+            foreach (var item in CartItems)
+            {
+                string nombre = item.Product.Name.Length > 15
+                    ? item.Product.Name.Substring(0, 15) + "..."
+                    : item.Product.Name;
+                Paragraph pItem = new Paragraph(new Run($"{nombre} - Cant: {item.Quantity} - Subtotal: Q{item.SubTotal:N2}"));
+                pItem.FontSize = 10;
+                doc.Blocks.Add(pItem);
+            }
+
+            // 5. Totales
+            Paragraph totalP = new Paragraph(new Run($"Total: Q{TotalPrice:N2}"));
+            totalP.FontSize = 12;
+            totalP.FontWeight = FontWeights.Bold;
+            doc.Blocks.Add(totalP);
+
+            Paragraph finalTotalP = new Paragraph(new Run($"Total Final: Q{FinalTotal:N2}"));
+            finalTotalP.FontSize = 12;
+            finalTotalP.FontWeight = FontWeights.Bold;
+            doc.Blocks.Add(finalTotalP);
+
+            // 6. Mensaje final
+            Paragraph agradecimiento = new Paragraph(new Run("Gracias por su compra"));
+            agradecimiento.FontSize = 10;
+            doc.Blocks.Add(agradecimiento);
+
+            // 7. Imprimir el FlowDocument sin mostrar diálogo
+            PrintFlowDocument(doc);
+            }
+            catch (Exception e) {
+                Debug.WriteLine("Error al generar e imprimir el recibo: " + e.Message);
+            }
+        }
+
+        private void PrintFlowDocument(FlowDocument doc)
+        {
+            // Obtener la impresora predeterminada
+            LocalPrintServer localPrintServer = new LocalPrintServer();
+            PrintQueue printQueue = localPrintServer.DefaultPrintQueue;
+
+            // Crear un XpsDocumentWriter para enviar el documento a la impresora
+            XpsDocumentWriter xpsWriter = PrintQueue.CreateXpsDocumentWriter(printQueue);
+
+            // Imprimir el documento sin mostrar diálogo
+            xpsWriter.Write(((IDocumentPaginatorSource)doc).DocumentPaginator);
+        }
+
 
     }
 }
