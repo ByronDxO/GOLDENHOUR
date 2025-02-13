@@ -75,6 +75,36 @@ namespace GoldenHour.Repositories
             }
             return user;
         }
+        public IEnumerable<GT_User> GetAllEmployees()
+        {
+            var employees = new List<GT_User>();
+            using (SqlConnection conn = GetConnection())
+            {
+                string sql = @"
+                    SELECT usu_idUser, usu_username, usu_firstname, usu_lastname -- etc., según tu tabla
+                    FROM GT_User";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            employees.Add(new GT_User
+                            {
+                                usu_idUser = Convert.ToInt32(reader["usu_idUser"]),
+                                usu_username = reader["usu_username"].ToString(),
+                                usu_firstname = reader["usu_firstname"].ToString(),
+                                usu_lastName = reader["usu_lastname"].ToString()
+                                // Asigna el resto de campos según corresponda
+                            });
+                        }
+                    }
+                    conn.Close();
+                }
+            }
+            return employees;
+        }
 
         public void Remove(int id)
         {

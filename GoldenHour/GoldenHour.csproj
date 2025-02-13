@@ -123,6 +123,7 @@
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
+    <Reference Include="System.Printing" />
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
@@ -155,24 +156,35 @@
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\GT_Category.cs" />
+    <Compile Include="Model\GT_DetailReceipt.cs" />
+    <Compile Include="Model\GT_MeanPayment.cs" />
     <Compile Include="Model\GT_Modifier.cs" />
+    <Compile Include="Model\GT_Payment.cs" />
     <Compile Include="Model\GT_Product.cs" />
+    <Compile Include="Model\GT_Receipt.cs" />
+    <Compile Include="Model\GT_User.cs" />
     <Compile Include="Model\UserAccountModel.cs" />
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Model\IUserRepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\GT_DetailReceipt.cs" />
+    <Compile Include="Repositories\MeanPaymentRepository.cs" />
     <Compile Include="Repositories\ModifierRepository.cs" />
+    <Compile Include="Repositories\PaymentRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\ReceiptRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="ViewModel\CartItemViewModel.cs" />
     <Compile Include="ViewModel\CategoriasSubViewModel.cs" />
     <Compile Include="ViewModel\CategoryViewModel.cs" />
+    <Compile Include="ViewModel\ConsultaDatosViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\GenerateReceiptViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\MeanPaymentViewModel.cs" />
     <Compile Include="ViewModel\ModificadoresSubViewModel.cs" />
     <Compile Include="ViewModel\ModifierViewModel.cs" />
     <Compile Include="ViewModel\ProductosSubViewModel.cs" />
@@ -183,6 +195,9 @@
     <Compile Include="ViewModel\ViewModelCommand.cs" />
     <Compile Include="View\CategoriasSubView.xaml.cs">
       <DependentUpon>CategoriasSubView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ConsultaDatosView.xaml.cs">
+      <DependentUpon>ConsultaDatosView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CustomerView.xaml.cs">
       <DependentUpon>CustomerView.xaml</DependentUpon>
@@ -241,6 +256,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CategoriasSubView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ConsultaDatosView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -323,6 +342,9 @@
     <Resource Include="images\user-icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="images\logo5.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Script\DBScript.sql" />
   </ItemGroup>
   <ItemGroup>

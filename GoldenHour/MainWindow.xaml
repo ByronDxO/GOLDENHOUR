@@ -51,6 +51,9 @@
 			<local1:GenerateReceiptView/>
 		</DataTemplate>
 
+		<DataTemplate DataType="{x:Type viewModel:ConsultaDatosViewModel}">
+			<local1:ConsultaDatosView/>
+		</DataTemplate>
 
 
 
@@ -134,7 +137,7 @@
 
 					<RadioButton Style="{StaticResource menuButton}"
              Tag="{StaticResource color2}"
-             Command="{Binding ShowCustomerViewCommand}">
+             Command="{Binding ShowConsultaDatosViewCommand}">
 						<StackPanel Orientation="Horizontal">
 							<fa:IconImage Icon="BookOpenReader" Style="{StaticResource menuButtonIcon}"/>
 							<TextBlock Text="Ver Reportes" Style="{StaticResource menuButtonText}"/>
