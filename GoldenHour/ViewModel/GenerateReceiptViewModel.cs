@@ -38,8 +38,57 @@ namespace GoldenHour.ViewModel
             }
         }
 
+        public ObservableCollection<MeanPaymentViewModel> PaymentMethods { get; set; }
+
+        private MeanPaymentViewModel _selectedPaymentMethod;
+        public MeanPaymentViewModel SelectedPaymentMethod
+        {
+            get => _selectedPaymentMethod;
+            set
+            {
+                _selectedPaymentMethod = value;
+                OnPropertyChanged(nameof(SelectedPaymentMethod));
+                OnPropertyChanged(nameof(CanGenerateReceipt));
+            }
+        }
+
+
+        private string _transactionNumber;
+        public string TransactionNumber
+        {
+            get => _transactionNumber;
+            set
+            {
+                _transactionNumber = value;
+                OnPropertyChanged(nameof(TransactionNumber));
+                OnPropertyChanged(nameof(CanGenerateReceipt));
+            }
+        }
+
+
+        public bool CanGenerateReceipt
+        {
+            get
+            {
+                // Se requiere que haya un modificador y un medio de pago seleccionado.
+                if (SelectedModifier == null || SelectedPaymentMethod == null)
+                    return false;
+
+                // Si el medio de pago es "Efectivo" (ID == 1), no se requiere el número de transacción.
+                if (SelectedPaymentMethod.Id == 1)
+                    return true;
+                else
+                    // Si no es efectivo, se requiere que se ingrese el número de transacción.
+                    return !string.IsNullOrWhiteSpace(TransactionNumber);
+            }
+        }
+
+
+
+
 
         public ObservableCollection<ModifierViewModel> Modifiers { get; set; }
+
 
         private ModifierViewModel _selectedModifier;
         public ModifierViewModel SelectedModifier
@@ -50,6 +99,7 @@ namespace GoldenHour.ViewModel
                 _selectedModifier = value;
                 OnPropertyChanged(nameof(SelectedModifier));
                 OnPropertyChanged(nameof(FinalTotal));
+                OnPropertyChanged(nameof(CanGenerateReceipt));
             }
         }
 
@@ -87,6 +137,7 @@ namespace GoldenHour.ViewModel
 
         public ICommand RemoveFromCartCommand { get; }
 
+        public ICommand NewReceiptCommand { get; }
 
         public ICommand GenerateReceiptCommand { get; }
         public GenerateReceiptViewModel()
@@ -97,6 +148,7 @@ namespace GoldenHour.ViewModel
             CartItems = new ObservableCollection<CartItemViewModel>();
 
             Modifiers = new ObservableCollection<ModifierViewModel>();
+            PaymentMethods = new ObservableCollection<MeanPaymentViewModel>();  // Nueva colección
 
             CartItems.CollectionChanged += (s, e) => OnPropertyChanged(nameof(TotalPrice));
 
@@ -109,13 +161,38 @@ namespace GoldenHour.ViewModel
             AddToCartCommand = new ViewModelCommand(param => AddProductToCart(param as ProductViewModel));
             ContinueCommand = new ViewModelCommand(param => ShowModifierPanel = true);
             RemoveFromCartCommand = new ViewModelCommand(param => RemoveProductFromCart(param as CartItemViewModel));
-            GenerateReceiptCommand = new ViewModelCommand(param => GenerateAndPrintReceipt());
+            
 
-            PrintReceiptCommand = new ViewModelCommand(param => PrintReceiptUsingFlowDocument());
+            PrintReceiptCommand = new ViewModelCommand(
+                param => RegisterPaymentAndPrintReceipt(),
+                param => CanGenerateReceipt
+            );
+
+            NewReceiptCommand = new ViewModelCommand(param => ResetReceipt());
+
 
             // Cargar las categorías desde el repositorio o servicio
             LoadCategories();
             LoadModifiers();
+            LoadPaymentMethods();
+        }
+
+
+        private void ResetReceipt()
+        {
+            // Vaciar el carrito
+            CartItems.Clear();
+
+            // Reiniciar selecciones de modificador, medio de pago y número de transacción
+            SelectedModifier = null;
+            SelectedPaymentMethod = null;
+            TransactionNumber = string.Empty;
+
+            // Ocultar el panel de modificadores
+            ShowModifierPanel = false;
+
+            // Si tienes otros campos (por ejemplo, datos del cliente) resétalos también aquí.
+            // También podrías limpiar Products, si se requiere volver a seleccionar una categoría, etc.
         }
 
         private void RemoveProductFromCart(CartItemViewModel item)
@@ -126,6 +203,26 @@ namespace GoldenHour.ViewModel
                 OnPropertyChanged(nameof(TotalPrice));
             }
         }
+
+
+        private void LoadPaymentMethods()
+        {
+            PaymentMethods.Clear();
+            var paymentRepo = new MeanPaymentRepository();
+            var payments = paymentRepo.GetMeanPayments(); // Obtiene una colección de GT_MeanPayment
+            foreach (var p in payments)
+            {
+                PaymentMethods.Add(new MeanPaymentViewModel
+                {
+                    Id = p.mep_idMeanPayment,
+                    Name = p.mep_name,
+                    Status = p.mep_status,
+                    Date = p.mep_date
+                });
+            }
+        }
+
+
         private void LoadCategories()
         {
             var catRepo = new CategoryRepository();
@@ -209,106 +306,44 @@ namespace GoldenHour.ViewModel
         }
 
 
-
-        public void GenerateAndPrintReceipt()
+        private void RegisterPaymentAndPrintReceipt()
         {
-
             try
             {
-                /*
-                // Crear un documento PDF nuevo
-                PdfDocument document = new PdfDocument();
-                document.Info.Title = "Recibo (Documento no Tributario)";
-
-                // Crear una página con ancho máximo de 55mm (~156 puntos)
-                PdfPage page = document.AddPage();
-                double widthInPoints = 55 * 2.83465; // Aproximadamente 156 puntos
-                page.Width = widthInPoints;
-                // Establecer una altura adecuada (puedes calcularla o fijarla)
-                page.Height = 400;
-                XGraphics gfx = XGraphics.FromPdfPage(page);
-
-                // Definir las fuentes (ajusta según tus preferencias)
-                XFont fontTitle = new XFont("Arial", 10, PdfSharp.Drawing.XFontStyleEx.Bold);
-                XFont fontRegular = new XFont("Arial", 8, PdfSharp.Drawing.XFontStyleEx.Regular);
-
-
-
-
-
-
-                // Posiciones iniciales (márgenes)
-                double posX = 5, posY = 5;
-
-                // El URI pack indica que la imagen se encuentra en el assembly actual, en la carpeta "images".
-                Uri uri = new Uri("pack://application:,,,/images/logo4.jpg", UriKind.Absolute);
-                var resourceInfo = System.Windows.Application.GetResourceStream(uri);
-                if (resourceInfo == null)
-                    throw new InvalidOperationException("No se encontró el recurso de la imagen.");
-                XImage logo = XImage.FromStream(resourceInfo.Stream);
-
-
-
-                // Definir posición y tamaño para el logo (ajusta según tus necesidades)
-                // Por ejemplo, dibujar el logo en la parte superior centrado, con un ancho de 100 puntos y altura proporcional.
-                double logoWidth = 100;
-                double logoHeight = logo.PixelHeight * logoWidth / logo.PixelWidth; // Mantiene la proporción
-                double logoPosX = (page.Width - logoWidth) / 2; // Centrado horizontalmente
-                double logoPosY = 10; // Un margen superior de 10 puntos
-
-                // Dibujar el logo en la página
-                gfx.DrawImage(logo, logoPosX, logoPosY, logoWidth, logoHeight);
-
-                // Actualizar posY para continuar con el contenido debajo del logo
-                posY = logoPosY + logoHeight + 10;
-
-                // Dibujar encabezado
-                gfx.DrawString("Recibo", fontTitle, XBrushes.Black, new XRect(0, posY, page.Width, 20), XStringFormats.TopCenter);
-                posY += 25;
-
-                // Dibujar fecha
-                string fecha = DateTime.Now.ToString("dd/MM/yyyy");
-                gfx.DrawString($"Fecha: {fecha}", fontRegular, XBrushes.Black, posX, posY);
-                posY += 15;
-
-                // Dibujar los ítems del carrito
-                foreach (var item in CartItems)
-                {
-                    // Truncar el nombre si es muy largo
-                    string nombre = item.Product.Name.Length > 15 ? item.Product.Name.Substring(0, 15) + "..." : item.Product.Name;
-                    gfx.DrawString(nombre, fontRegular, XBrushes.Black, posX, posY);
-                    posY += 10;
-                    gfx.DrawString($"Cant: {item.Quantity}", fontRegular, XBrushes.Black, posX, posY);
-                    posY += 10;
-                    gfx.DrawString($"Subtotal: Q{item.SubTotal:N2}", fontRegular, XBrushes.Black, posX, posY);
-                    posY += 15;
-                }
-
-                // Dibujar totales
-                gfx.DrawString($"Total: Q{TotalPrice:N2}", fontTitle, XBrushes.Black, posX, posY);
-                posY += 15;
-                gfx.DrawString($"Total Final: Q{FinalTotal:N2}", fontTitle, XBrushes.Black, posX, posY);
-                posY += 20;
-                gfx.DrawString("Gracias por su compra", fontRegular, XBrushes.Black, posX, posY);
-
-                // Guardar el documento en un archivo temporal
-                string tempPath = Path.Combine(Path.GetTempPath(), "Recibo.pdf");
-                document.Save(tempPath);
-
-                // Imprimir el PDF usando la aplicación predeterminada para PDF (o un proceso específico)
-                ProcessStartInfo psi = new ProcessStartInfo
-                {
-                    FileName = tempPath,
-                    UseShellExecute = true // Esto abrirá el PDF con la aplicación predeterminada, que puede tener opción de imprimir
-                };
-                Process.Start(psi);*/
+                // Registrar el medio de pago
+                RegisterPayment();
+                SaveReceiptAndDetails();
+                // Luego, generar e imprimir el recibo (usando el método que ya tienes)
+                PrintReceiptUsingFlowDocument();
             }
             catch (Exception ex)
             {
-                // Manejo de errores (puedes mostrar un mensaje o registrar el error)
-                Debug.WriteLine("Error al generar e imprimir el recibo: " + ex.Message);
+                Debug.WriteLine("Error al registrar el medio de pago y/o imprimir el recibo: " + ex.Message);
             }
         }
+
+        private void RegisterPayment()
+        {
+            var paymentRepo = new Repositories.PaymentRepository();
+            // Si el medio de pago es "Efectivo", se asigna "0"; si no, se usa TransactionNumber
+            string transactionNumber = "0";
+            if (SelectedPaymentMethod != null &&
+                !string.Equals(SelectedPaymentMethod.Name?.Trim(), "Efectivo", StringComparison.OrdinalIgnoreCase))
+            {
+                transactionNumber = TransactionNumber; // Aquí asumes que el usuario ingresó el número de transacción.
+            }
+
+            var payment = new GoldenHour.Model.GT_Payment
+            {
+                pay_transaction = transactionNumber,
+                pay_date = DateTime.Now,
+                fk_idMeanPayment = SelectedPaymentMethod?.Id
+            };
+
+            int insertedId = paymentRepo.InsertPayment(payment);
+            // Puedes validar que insertedId sea mayor que 0 para confirmar la inserción.
+        }
+
 
 
 
@@ -396,6 +431,44 @@ namespace GoldenHour.ViewModel
             // Imprimir el documento sin mostrar diálogo
             xpsWriter.Write(((IDocumentPaginatorSource)doc).DocumentPaginator);
         }
+
+
+        private void SaveReceiptAndDetails()
+        {
+            // 1. Crear el objeto GT_Receipt con la información del recibo.
+            // Por ejemplo, supongamos que en tu app tienes información del cliente y del usuario actual:
+            var receipt = new GoldenHour.Model.GT_Receipt
+            {
+                rec_total = TotalPrice,  // O FinalTotal, según cómo se quiera guardar
+                rec_client = "Nombre del Cliente",  // Reemplaza con la información real
+                rec_mail = "cliente@correo.com",      // Reemplaza con la información real
+                rec_date = DateTime.Now,
+                rec_status = 1, // Por ejemplo, 1 = activo
+                fk_idUser = 1,  // Reemplaza con el ID del usuario actual
+                fk_idPayment = SelectedPaymentMethod?.Id, // Registrado en el pago
+                fk_idModifier = SelectedModifier?.Id
+            };
+
+            // 2. Insertar el recibo y capturar el ID insertado
+            var receiptRepo = new ReceiptRepository();
+            int receiptId = receiptRepo.InsertReceipt(receipt);
+
+            // 3. Por cada producto en el carrito, insertar un detalle
+            var detailRepo = new DetailReceiptRepository();
+            foreach (var item in CartItems)
+            {
+                var detail = new GoldenHour.Model.GT_DetailReceipt
+                {
+                    dre_date = DateTime.Now,
+                    dre_stock = item.Quantity, // O la cantidad que corresponda (puede representar el stock vendido)
+                    dre_total = item.SubTotal,
+                    fk_idProduct = item.Product.Id,
+                    fk_idReceipt = receiptId
+                };
+                detailRepo.InsertDetailReceipt(detail);
+            }
+        }
+
 
 
     }
