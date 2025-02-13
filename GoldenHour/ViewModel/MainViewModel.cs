@@ -76,7 +76,10 @@ namespace GoldenHour.ViewModel
         public ICommand ShowRegisterDataViewCommand { get; }
 
 
+
+
         public ICommand ShowGenerateReceiptViewCommand { get; }
+        public ICommand ShowConsultaDatosViewCommand { get; }
         public MainViewModel()
         {
             userRepository = new UserRepository();
@@ -87,6 +90,7 @@ namespace GoldenHour.ViewModel
             ShowRegisterDataViewCommand = new ViewModelCommand(ExecuteShowRegisterDataViewCommand);
 
             ShowGenerateReceiptViewCommand = new ViewModelCommand(ExecuteShowGenerateReceiptViewCommand);
+            ShowConsultaDatosViewCommand = new ViewModelCommand(ExecuteShowConsultaDatosViewCommand);
             //Default view
             ExecuteShowHomeViewCommand(null);
             LoadCurrentUserData();
@@ -99,6 +103,12 @@ namespace GoldenHour.ViewModel
             Icon = IconChar.UserGroup;
         }
 
+        private void ExecuteShowConsultaDatosViewCommand(object obj)
+        {
+            CurrentChildView = new ConsultaDatosViewModel();
+            Caption = "Ver Datos";
+            Icon = IconChar.BookOpenReader;
+        }
         private void ExecuteShowGenerateReceiptViewCommand(object obj)
         {
             CurrentChildView = new GenerateReceiptViewModel();

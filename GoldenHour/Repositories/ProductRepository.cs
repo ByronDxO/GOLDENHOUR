@@ -80,5 +80,40 @@ namespace GoldenHour.Repositories
             return products;
         }
 
+
+        public IEnumerable<GT_Product> GetAllProducts()
+        {
+            var products = new List<GT_Product>();
+            using (SqlConnection conn = GetConnection())
+            {
+                string sql = @"
+                    SELECT pro_idProduct, pro_name, pro_description, pro_status, pro_date, pro_total, pro_stock, pro_pathImage
+                    FROM GT_Product";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            products.Add(new GT_Product
+                            {
+                                pro_idProduct = Convert.ToInt32(reader["pro_idProduct"]),
+                                pro_name = reader["pro_name"].ToString(),
+                                pro_description = reader["pro_description"].ToString(),
+                                pro_status = reader["pro_status"] != DBNull.Value ? Convert.ToInt32(reader["pro_status"]) : (int?)null,
+                                pro_date = reader["pro_date"] != DBNull.Value ? Convert.ToDateTime(reader["pro_date"]) : (DateTime?)null,
+                                pro_total = reader["pro_total"] != DBNull.Value ? Convert.ToDecimal(reader["pro_total"]) : 0,
+                                pro_stock = reader["pro_stock"] != DBNull.Value ? Convert.ToInt32(reader["pro_stock"]) : 0,
+                                pro_pathImage = reader["pro_pathImage"].ToString()
+                            });
+                        }
+                    }
+                    conn.Close();
+                }
+            }
+            return products;
+        }
+
     }
 }
