@@ -115,5 +115,47 @@ namespace GoldenHour.Repositories
             return products;
         }
 
+        public void UpdateProduct(GT_Product product)
+        {
+            using (var conn = GetConnection())
+            {
+                string sql = @"UPDATE GT_Product 
+                               SET pro_name = @name, 
+                                   pro_description = @description, 
+                                   pro_total = @total, 
+                                   pro_stock = @stock, 
+                                   pro_pathImage = @pathImage 
+                               WHERE pro_idProduct = @id";
+                using (var cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@name", product.pro_name);
+                    cmd.Parameters.AddWithValue("@description", product.pro_description);
+                    cmd.Parameters.AddWithValue("@total", product.pro_total);
+                    cmd.Parameters.AddWithValue("@stock", product.pro_stock);
+                    cmd.Parameters.AddWithValue("@pathImage", product.pro_pathImage);
+                    cmd.Parameters.AddWithValue("@id", product.pro_idProduct);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        }
+
+        public void DeleteProduct(int productId)
+        {
+            using (var conn = GetConnection())
+            {
+                string sql = "DELETE FROM GT_Product WHERE pro_idProduct = @id";
+                using (var cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", productId);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        }
+
+
     }
 }

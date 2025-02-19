@@ -76,5 +76,93 @@ namespace GoldenHour.Repositories
             }
             return receipts;
         }
+
+
+        public IEnumerable<DailySalesReport> GetDailySalesReport(DateTime reportDate)
+        {
+            var reports = new List<DailySalesReport>();
+            using (SqlConnection conn = GetConnection())
+            {
+                string sql = @"
+                    SELECT CONVERT(date, rec_date) AS ReportDate,
+                           COUNT(*) AS TotalReceipts,
+                           SUM(rec_total) AS TotalSales
+                    FROM GT_Receipt
+                    WHERE CONVERT(date, rec_date) = @reportDate
+                    GROUP BY CONVERT(date, rec_date)";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@reportDate", reportDate.Date);
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            reports.Add(new DailySalesReport
+                            {
+                                ReportDate = Convert.ToDateTime(reader["ReportDate"]),
+                                TotalReceipts = Convert.ToInt32(reader["TotalReceipts"]),
+                                TotalSales = reader["TotalSales"] != DBNull.Value ? Convert.ToDecimal(reader["TotalSales"]) : 0
+                            });
+                        }
+                    }
+                    conn.Close();
+                }
+            }
+            return reports;
+        }
+        public void UpdateReceipt(GT_Receipt receipt)
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                string sql = @"
+            UPDATE GT_Receipt
+            SET rec_total = @total,
+                rec_client = @client,
+                rec_mail = @mail,
+                rec_date = @date,
+                rec_status = @status,
+                fk_idUser = @fkUser,
+                fk_idPayment = @fkPayment,
+                fk_idModifier = @fkModifier
+            WHERE rec_idReceipt = @id";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@total", receipt.rec_total.HasValue ? (object)receipt.rec_total.Value : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@client", string.IsNullOrEmpty(receipt.rec_client) ? (object)DBNull.Value : receipt.rec_client);
+                    cmd.Parameters.AddWithValue("@mail", string.IsNullOrEmpty(receipt.rec_mail) ? (object)DBNull.Value : receipt.rec_mail);
+                    cmd.Parameters.AddWithValue("@date", receipt.rec_date.HasValue ? (object)receipt.rec_date.Value : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@status", receipt.rec_status.HasValue ? (object)receipt.rec_status.Value : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@fkUser", receipt.fk_idUser.HasValue ? (object)receipt.fk_idUser.Value : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@fkPayment", receipt.fk_idPayment.HasValue ? (object)receipt.fk_idPayment.Value : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@fkModifier", receipt.fk_idModifier.HasValue ? (object)receipt.fk_idModifier.Value : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@id", receipt.rec_idReceipt);
+                    conn.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    conn.Close();
+
+                    if (rowsAffected == 0)
+                    {
+                        throw new Exception("No se actualizó el recibo. Verifica los datos ingresados.");
+                    }
+                }
+            }
+        }
+
+        public void DeleteReceipt(int receiptId)
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                string sql = "DELETE FROM GT_Receipt WHERE rec_idReceipt = @id";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", receiptId);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        }
+
     }
 }

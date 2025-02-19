@@ -4,13 +4,18 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GoldenHour.View"
-             mc:Ignorable="d"  xmlns:vm="clr-namespace:GoldenHour.ViewModel"
-	 xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-            
+             xmlns:vm="clr-namespace:GoldenHour.ViewModel"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             mc:Ignorable="d"  
              d:DesignHeight="450" d:DesignWidth="800">
+	<UserControl.Resources>
+		<BooleanToVisibilityConverter x:Key="BoolToVis"/>
+	</UserControl.Resources>
+
 	<UserControl.DataContext>
 		<vm:ConsultaDatosViewModel/>
 	</UserControl.DataContext>
+
 	<Grid Margin="10">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="50"/>
@@ -54,11 +59,8 @@
 						<Setter Property="Template">
 							<Setter.Value>
 								<ControlTemplate TargetType="Button">
-									<Border Height="30"
-                          CornerRadius="15"
-                          Background="{TemplateBinding Background}">
-										<ContentPresenter HorizontalAlignment="Center"
-                                      VerticalAlignment="Center"/>
+									<Border Height="30" CornerRadius="15" Background="{TemplateBinding Background}">
+										<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
 									</Border>
 								</ControlTemplate>
 							</Setter.Value>
@@ -73,54 +75,231 @@
 			</Button>
 		</Grid>
 
-		<!-- Área de visualización de datos -->
-		<Border Grid.Row="1"
-            Background="#200F53"
-            CornerRadius="10" 
-            Padding="10"
-            Margin="10">
+		<!-- Área de visualización de datos y reportes -->
+		<Border Grid.Row="1" Background="#200F53" CornerRadius="10" Padding="10" Margin="10">
 			<TabControl>
+				<!-- Recibos -->
 				<TabItem Header="Recibos">
 					<DataGrid ItemsSource="{Binding Receipts}" 
-                    AutoGenerateColumns="True" 
-                    IsReadOnly="True" 
+                    AutoGenerateColumns="False" 
+                    IsReadOnly="False"
+                    CanUserAddRows="False"
                     Background="#200F53"
-                    BorderThickness="0"/>
+                    BorderThickness="0">
+						<DataGrid.Columns>
+							<DataGridTextColumn Header="ID" Binding="{Binding rec_idReceipt}" IsReadOnly="True" Width="Auto"/>
+							<DataGridTextColumn Header="Cliente" Binding="{Binding rec_client}" Width="*"/>
+							<DataGridTextColumn Header="Correo" Binding="{Binding rec_mail}" Width="*"/>
+							<DataGridTextColumn Header="Fecha" Binding="{Binding rec_date, StringFormat={}{0:dd/MM/yyyy}}" Width="Auto"/>
+							<DataGridTextColumn Header="Total" Binding="{Binding rec_total, StringFormat='Q{0:N2}'}" Width="Auto"/>
+							<DataGridTemplateColumn Header="Acciones" Width="Auto">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<StackPanel Orientation="Horizontal">
+											<Button Content="Actualizar" 
+                              Command="{Binding DataContext.UpdateReceiptCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                              CommandParameter="{Binding}"
+                              Style="{StaticResource controlButton}" Margin="5"/>
+											<Button Content="Eliminar" 
+                              Command="{Binding DataContext.DeleteReceiptCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                              CommandParameter="{Binding}"
+                              Style="{StaticResource controlButton}" Margin="5"/>
+										</StackPanel>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+						</DataGrid.Columns>
+					</DataGrid>
 				</TabItem>
+
+				<!-- Empleados -->
 				<TabItem Header="Empleados">
 					<DataGrid ItemsSource="{Binding Employees}" 
                     AutoGenerateColumns="True" 
-                    IsReadOnly="True" 
+                    IsReadOnly="False"
+                    CanUserAddRows="False"
                     Background="#200F53"
                     BorderThickness="0"/>
 				</TabItem>
+
+				<!-- Productos -->
 				<TabItem Header="Productos">
 					<DataGrid ItemsSource="{Binding Products}" 
-                    AutoGenerateColumns="True" 
-                    IsReadOnly="True" 
-                    Background="{StaticResource color8 }"
-                    BorderThickness="0"/>
+                    AutoGenerateColumns="False" 
+                    IsReadOnly="False"
+                    CanUserAddRows="False"
+                    Margin="5"
+                    Background="{StaticResource color8}"
+                    BorderThickness="0"
+                    SelectedItem="{Binding SelectedProduct, Mode=TwoWay}">
+						<DataGrid.Columns>
+							<DataGridTextColumn Header="ID" Binding="{Binding pro_idProduct}" IsReadOnly="True" Width="Auto"/>
+							<DataGridTextColumn Header="Nombre" Binding="{Binding pro_name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+							<DataGridTextColumn Header="Descripción" Binding="{Binding pro_description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="2*"/>
+							<DataGridTextColumn Header="Precio" Binding="{Binding pro_total, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat='Q{0:N2}'}" Width="Auto"/>
+							<DataGridTextColumn Header="Stock" Binding="{Binding pro_stock, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="Auto"/>
+							<DataGridTemplateColumn Header="Imagen" Width="Auto">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<StackPanel Orientation="Horizontal">
+											<Image Source="{Binding pro_pathImage}" Height="50" Stretch="Uniform"/>
+											<Button Content="Cambiar" 
+                Command="{Binding DataContext.ChangeImageCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                CommandParameter="{Binding}"
+                Style="{StaticResource controlButton}"
+                Margin="5"/>
+										</StackPanel>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+
+							<DataGridTemplateColumn Header="Acciones" Width="Auto">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<StackPanel Orientation="Horizontal">
+											<Button Content="Actualizar" 
+                              Command="{Binding DataContext.UpdateProductCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                              CommandParameter="{Binding}"
+                              Style="{StaticResource controlButton}"
+                              Margin="5"/>
+											<Button Content="Eliminar" 
+                              Command="{Binding DataContext.DeleteProductCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                              CommandParameter="{Binding}"
+                              Style="{StaticResource controlButton}"
+                              Margin="5"/>
+										</StackPanel>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+						</DataGrid.Columns>
+					</DataGrid>
 				</TabItem>
+
+				<!-- Categorías -->
 				<TabItem Header="Categorías">
 					<DataGrid ItemsSource="{Binding Categories}" 
-                    AutoGenerateColumns="True" 
-                    IsReadOnly="True" 
-                     Background="{StaticResource color8 }"
-                    BorderThickness="0"/>
+                    AutoGenerateColumns="False" 
+                    IsReadOnly="False"
+                    CanUserAddRows="False"
+                    Background="#200F53"
+                    BorderThickness="0"
+                    SelectedItem="{Binding SelectedCategory, Mode=TwoWay}">
+						<DataGrid.Columns>
+							<DataGridTextColumn Header="ID" Binding="{Binding cat_idCategory}" IsReadOnly="True" Width="Auto"/>
+							<DataGridTextColumn Header="Nombre" Binding="{Binding cat_name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+							<DataGridTextColumn Header="Descripción" Binding="{Binding cat_description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="2*"/>
+							<DataGridTextColumn Header="Estado" Binding="{Binding cat_status}" Width="Auto"/>
+							<DataGridTextColumn Header="Fecha" Binding="{Binding cat_date, StringFormat={}{0:dd/MM/yyyy}}" Width="Auto"/>
+							<DataGridTemplateColumn Header="Acciones" Width="Auto">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<StackPanel Orientation="Horizontal">
+											<Button Content="Actualizar" 
+                              Command="{Binding DataContext.UpdateCategoryCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                              CommandParameter="{Binding}"
+                              Style="{StaticResource controlButton}" Margin="5"/>
+											<Button Content="Eliminar" 
+                              Command="{Binding DataContext.DeleteCategoryCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                              CommandParameter="{Binding}"
+                              Style="{StaticResource controlButton}" Margin="5"/>
+										</StackPanel>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+						</DataGrid.Columns>
+					</DataGrid>
 				</TabItem>
+
+				<!-- Modificadores -->
 				<TabItem Header="Modificadores">
 					<DataGrid ItemsSource="{Binding Modifiers}" 
-                    AutoGenerateColumns="True" 
-                    IsReadOnly="True" 
-                   Background="{StaticResource color8 }"
-                    BorderThickness="0"/>
+                    AutoGenerateColumns="False" 
+                    IsReadOnly="False"
+                    CanUserAddRows="False"
+                    Background="#200F53"
+                    BorderThickness="0"
+                    SelectedItem="{Binding SelectedModifier, Mode=TwoWay}">
+						<DataGrid.Columns>
+							<DataGridTextColumn Header="ID" Binding="{Binding mdf_idModifier}" IsReadOnly="True" Width="Auto"/>
+							<DataGridTextColumn Header="Nombre" Binding="{Binding mdf_name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+							<DataGridTextColumn Header="Descripción" Binding="{Binding mdf_description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="2*"/>
+							<DataGridTextColumn Header="Porcentaje" Binding="{Binding mdf_percentage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="Auto"/>
+							<DataGridTemplateColumn Header="Acciones" Width="Auto">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<StackPanel Orientation="Horizontal">
+											<Button Content="Actualizar" 
+                              Command="{Binding DataContext.UpdateModifierCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                              CommandParameter="{Binding}"
+                              Style="{StaticResource controlButton}" Margin="5"/>
+											<Button Content="Eliminar" 
+                              Command="{Binding DataContext.DeleteModifierCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                              CommandParameter="{Binding}"
+                              Style="{StaticResource controlButton}" Margin="5"/>
+										</StackPanel>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+						</DataGrid.Columns>
+					</DataGrid>
 				</TabItem>
+
+				<!-- Medios de Pago -->
 				<TabItem Header="Medios de Pago">
 					<DataGrid ItemsSource="{Binding MeanPayments}" 
-                    AutoGenerateColumns="True" 
-                    IsReadOnly="True" 
-                    Background="{StaticResource color8 }"
-                    BorderThickness="0"/>
+                    AutoGenerateColumns="False" 
+                    IsReadOnly="False"
+                    CanUserAddRows="False"
+                    Background="#200F53"
+                    BorderThickness="0"
+                    SelectedItem="{Binding SelectedMeanPayment, Mode=TwoWay}">
+						<DataGrid.Columns>
+							<DataGridTextColumn Header="ID" Binding="{Binding mep_idMeanPayment}" IsReadOnly="True" Width="Auto"/>
+							<DataGridTextColumn Header="Nombre" Binding="{Binding mep_name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="*"/>
+							<DataGridTextColumn Header="Estado" Binding="{Binding mep_status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="Auto"/>
+							<DataGridTextColumn Header="Fecha" Binding="{Binding mep_date, StringFormat={}{0:dd/MM/yyyy}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="Auto"/>
+							<DataGridTemplateColumn Header="Acciones" Width="Auto">
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<StackPanel Orientation="Horizontal">
+											<Button Content="Actualizar" 
+                              Command="{Binding DataContext.UpdateMeanPaymentCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                              CommandParameter="{Binding}"
+                              Style="{StaticResource controlButton}" Margin="5"/>
+											<Button Content="Eliminar" 
+                              Command="{Binding DataContext.DeleteMeanPaymentCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                              CommandParameter="{Binding}"
+                              Style="{StaticResource controlButton}" Margin="5"/>
+										</StackPanel>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+						</DataGrid.Columns>
+					</DataGrid>
+				</TabItem>
+
+				<!-- Reporte de Ventas Diarias -->
+				<TabItem Header="Ventas Diarias">
+					<StackPanel Margin="10">
+						<StackPanel Orientation="Horizontal" Margin="5">
+							<TextBlock Text="Fecha:" VerticalAlignment="Center" Margin="5"/>
+							<DatePicker SelectedDate="{Binding SalesReportDate, Mode=TwoWay}" Margin="5"/>
+							<Button Content="Cargar Reporte" 
+                      Command="{Binding LoadDailySalesReportsCommand}" 
+                      Margin="5"
+                      Style="{StaticResource controlButton}"/>
+						</StackPanel>
+						<DataGrid ItemsSource="{Binding DailySalesReports}"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      Margin="5">
+							<DataGrid.Columns>
+								<DataGridTextColumn Header="Fecha" Binding="{Binding ReportDate, StringFormat={}{0:dd/MM/yyyy}}" Width="*"/>
+								<DataGridTextColumn Header="Total Recibos" Binding="{Binding TotalReceipts}" Width="*"/>
+								<DataGridTextColumn Header="Total Ventas" Binding="{Binding TotalSales, StringFormat='Q{0:N2}'}" Width="*"/>
+							</DataGrid.Columns>
+						</DataGrid>
+					</StackPanel>
 				</TabItem>
 			</TabControl>
 		</Border>
