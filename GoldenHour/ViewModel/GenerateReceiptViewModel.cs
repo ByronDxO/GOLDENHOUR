@@ -16,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows;
 using System.Printing;
 using System.Windows.Xps;
-
+using System.Windows;
 
 namespace GoldenHour.ViewModel
 {
@@ -37,7 +37,25 @@ namespace GoldenHour.ViewModel
                 LoadProductsForCategory();
             }
         }
+        private bool _saleSaved;
+        public bool SaleSaved
+        {
+            get => _saleSaved;
+            set
+            {
+                _saleSaved = value;
+                OnPropertyChanged(nameof(SaleSaved));
+                OnPropertyChanged(nameof(CanSaveSale));
+                OnPropertyChanged(nameof(SaveSaleButtonVisibility));
+                OnPropertyChanged(nameof(NewReceiptButtonVisibility));
+            }
+        }
 
+
+        public bool CanSaveSale => !SaleSaved;
+
+        public Visibility SaveSaleButtonVisibility => SaleSaved ? Visibility.Collapsed : Visibility.Visible;
+        public Visibility NewReceiptButtonVisibility => SaleSaved ? Visibility.Visible : Visibility.Collapsed;
         public ObservableCollection<MeanPaymentViewModel> PaymentMethods { get; set; }
 
         private MeanPaymentViewModel _selectedPaymentMethod;
@@ -138,6 +156,7 @@ namespace GoldenHour.ViewModel
         public ICommand RemoveFromCartCommand { get; }
 
         public ICommand NewReceiptCommand { get; }
+        public ICommand SaveSaleCommand { get; }
 
         public ICommand GenerateReceiptCommand { get; }
         public GenerateReceiptViewModel()
@@ -161,7 +180,12 @@ namespace GoldenHour.ViewModel
             AddToCartCommand = new ViewModelCommand(param => AddProductToCart(param as ProductViewModel));
             ContinueCommand = new ViewModelCommand(param => ShowModifierPanel = true);
             RemoveFromCartCommand = new ViewModelCommand(param => RemoveProductFromCart(param as CartItemViewModel));
-            
+
+
+            SaveSaleCommand = new ViewModelCommand(
+      param => RegisterPaymentAndSaveSale(),
+      param => CanGenerateReceipt && CanSaveSale
+  );
 
             PrintReceiptCommand = new ViewModelCommand(
                 param => RegisterPaymentAndPrintReceipt(),
@@ -175,6 +199,7 @@ namespace GoldenHour.ViewModel
             LoadCategories();
             LoadModifiers();
             LoadPaymentMethods();
+            SaleSaved = false;
         }
 
 
@@ -322,6 +347,25 @@ namespace GoldenHour.ViewModel
             }
         }
 
+
+        private void RegisterPaymentAndSaveSale()
+        {
+            try
+            {
+                // Registrar el pago y guardar el recibo y sus detalles
+                RegisterPayment();
+                SaveReceiptAndDetails();
+                // Mostrar mensaje emergente
+                System.Windows.MessageBox.Show("Venta guardada", "Información",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+                // Marcar que la venta ya se guardó para desactivar el botón
+                SaleSaved = true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error al registrar el medio de pago y guardar la venta: " + ex.Message);
+            }
+        }
         private void RegisterPayment()
         {
             var paymentRepo = new Repositories.PaymentRepository();
@@ -349,74 +393,97 @@ namespace GoldenHour.ViewModel
 
         public void PrintReceiptUsingFlowDocument()
         {
-            try {
-            // Crear un FlowDocument y configurar sus propiedades
-            FlowDocument doc = new FlowDocument();
-            doc.PageWidth = 156; // 55 mm ≈ 156 puntos
-            doc.PagePadding = new Thickness(10);
-            doc.ColumnGap = 0;
-            doc.ColumnWidth = doc.PageWidth;
-
-            // 1. Agregar el logo desde los recursos
-            // Usamos un Pack URI para acceder al recurso embebido (asegúrate de que el archivo logo4.jpg esté configurado como Resource)
-            BitmapImage bitmap = new BitmapImage(new Uri("pack://application:,,,/images/logo5.jpg", UriKind.Absolute));
-            System.Windows.Controls.Image logoControl = new System.Windows.Controls.Image();
-            logoControl.Source = bitmap;
-            logoControl.Width = 100; // Ajusta el ancho deseado
-            logoControl.Stretch = Stretch.Uniform;
-            logoControl.HorizontalAlignment = HorizontalAlignment.Center; // Establecer aquí la alineación
-            BlockUIContainer logoContainer = new BlockUIContainer(logoControl);
-            doc.Blocks.Add(logoContainer);
-
-
-            // Agregar un espacio (salto de línea)
-            doc.Blocks.Add(new Paragraph(new Run("\n")));
-
-            // 2. Encabezado
-            Paragraph header = new Paragraph(new Run("Recibo (Documento no Tributario)"));
-            header.FontSize = 14;
-            header.FontWeight = FontWeights.Bold;
-            header.TextAlignment = TextAlignment.Center;
-            doc.Blocks.Add(header);
-
-            // 3. Fecha
-            Paragraph fecha = new Paragraph(new Run("Fecha: " + DateTime.Now.ToString("dd/MM/yyyy")));
-            fecha.FontSize = 10;
-            doc.Blocks.Add(fecha);
-
-            // 4. Ítems del carrito
-            foreach (var item in CartItems)
+            try
             {
-                string nombre = item.Product.Name.Length > 15
-                    ? item.Product.Name.Substring(0, 15) + "..."
-                    : item.Product.Name;
-                Paragraph pItem = new Paragraph(new Run($"{nombre} - Cant: {item.Quantity} - Subtotal: Q{item.SubTotal:N2}"));
-                pItem.FontSize = 10;
-                doc.Blocks.Add(pItem);
+                FlowDocument doc = new FlowDocument
+                {
+                    PageWidth = 300, // Aumenta el ancho en puntos según tu necesidad
+                    PagePadding = new Thickness(0), // Elimina el padding
+                    ColumnGap = 0,
+                    ColumnWidth = 300 // que coincida con el PageWidth
+                };
+
+                // 1. Logo
+                BitmapImage bitmap = new BitmapImage(new Uri("pack://application:,,,/images/logo5.jpg", UriKind.Absolute));
+                System.Windows.Controls.Image logoControl = new System.Windows.Controls.Image
+                {
+                    Source = bitmap,
+                    Width = 100,
+                    Stretch = Stretch.Uniform,
+                    HorizontalAlignment = HorizontalAlignment.Center
+                };
+                BlockUIContainer logoContainer = new BlockUIContainer(logoControl)
+                {
+                    Margin = new Thickness(0)
+                };
+                doc.Blocks.Add(logoContainer);
+
+                // 2. Encabezado
+                Paragraph header = new Paragraph(new Run("Recibo (Documento no Tributario)"))
+                {
+                    FontSize = 14,
+                    FontWeight = FontWeights.Bold,
+                    TextAlignment = TextAlignment.Center,
+                    Margin = new Thickness(0)
+                };
+                doc.Blocks.Add(header);
+
+                // 3. Fecha
+                Paragraph fecha = new Paragraph(new Run("Fecha: " + DateTime.Now.ToString("dd/MM/yyyy")))
+                {
+                    FontSize = 10,
+                    Margin = new Thickness(0)
+                };
+                doc.Blocks.Add(fecha);
+
+                // 4. Ítems
+                foreach (var item in CartItems)
+                {
+                    string nombre = item.Product.Name.Length > 15
+                        ? item.Product.Name.Substring(0, 15) + "..."
+                        : item.Product.Name;
+
+                    Paragraph pItem = new Paragraph(new Run($"{nombre} - Cant: {item.Quantity} - Subtotal: Q{item.SubTotal:N2}"))
+                    {
+                        FontSize = 10,
+                        Margin = new Thickness(0)
+                    };
+                    doc.Blocks.Add(pItem);
+                }
+
+                // 5. Totales
+                Paragraph totalP = new Paragraph(new Run($"Total: Q{TotalPrice:N2}"))
+                {
+                    FontSize = 12,
+                    FontWeight = FontWeights.Bold,
+                    Margin = new Thickness(0)
+                };
+                doc.Blocks.Add(totalP);
+
+                Paragraph finalTotalP = new Paragraph(new Run($"Total Final: Q{FinalTotal:N2}"))
+                {
+                    FontSize = 12,
+                    FontWeight = FontWeights.Bold,
+                    Margin = new Thickness(0)
+                };
+                doc.Blocks.Add(finalTotalP);
+
+                // 6. Mensaje final
+                Paragraph agradecimiento = new Paragraph(new Run("Gracias por su compra"))
+                {
+                    FontSize = 10,
+                    Margin = new Thickness(0)
+                };
+                doc.Blocks.Add(agradecimiento);
+
+                // 7. Imprimir
+                PrintFlowDocument(doc);
             }
-
-            // 5. Totales
-            Paragraph totalP = new Paragraph(new Run($"Total: Q{TotalPrice:N2}"));
-            totalP.FontSize = 12;
-            totalP.FontWeight = FontWeights.Bold;
-            doc.Blocks.Add(totalP);
-
-            Paragraph finalTotalP = new Paragraph(new Run($"Total Final: Q{FinalTotal:N2}"));
-            finalTotalP.FontSize = 12;
-            finalTotalP.FontWeight = FontWeights.Bold;
-            doc.Blocks.Add(finalTotalP);
-
-            // 6. Mensaje final
-            Paragraph agradecimiento = new Paragraph(new Run("Gracias por su compra"));
-            agradecimiento.FontSize = 10;
-            doc.Blocks.Add(agradecimiento);
-
-            // 7. Imprimir el FlowDocument sin mostrar diálogo
-            PrintFlowDocument(doc);
-            }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 Debug.WriteLine("Error al generar e imprimir el recibo: " + e.Message);
             }
+
         }
 
         private void PrintFlowDocument(FlowDocument doc)

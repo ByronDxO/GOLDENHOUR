@@ -75,5 +75,57 @@ namespace GoldenHour.Repositories
             return modifiers;
         }
 
+
+        public void UpdateModifier(GT_Modifier modifier)
+        {
+            using (var conn = GetConnection())
+            {
+                string sql = @"
+            UPDATE GT_Modifier 
+            SET mdf_name = @name, 
+                mdf_description = @description, 
+                mdf_percentage = @percentage,
+                mdf_status = @status
+            WHERE mdf_idModifier = @id";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@name", modifier.mdf_name);
+                    cmd.Parameters.AddWithValue("@description", string.IsNullOrEmpty(modifier.mdf_description) ? (object)DBNull.Value : modifier.mdf_description);
+                    cmd.Parameters.AddWithValue("@percentage", modifier.mdf_percentage.HasValue ? (object)modifier.mdf_percentage.Value : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@status", modifier.mdf_status.HasValue ? (object)modifier.mdf_status.Value : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@id", modifier.mdf_idModifier);
+                    conn.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    conn.Close();
+
+                    if (rowsAffected == 0)
+                    {
+                        throw new Exception("No se actualizó el modificador. Verifica los datos ingresados.");
+                    }
+                }
+            }
+        }
+
+        public void DeleteModifier(int modifierId)
+        {
+            using (var conn = GetConnection())
+            {
+                string sql = "DELETE FROM GT_Modifier WHERE mdf_idModifier = @id";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", modifierId);
+                    conn.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    conn.Close();
+
+                    if (rowsAffected == 0)
+                    {
+                        throw new Exception("No se eliminó el modificador. Verifica que el registro exista.");
+                    }
+                }
+            }
+        }
+
+
     }
 }

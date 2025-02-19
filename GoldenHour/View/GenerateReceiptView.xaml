@@ -108,30 +108,29 @@
                 HorizontalAlignment="Right" Margin="10" Padding="10"/>
 
 		<!-- Panel de Modificadores y Pago: Visible solo si ShowModifierPanel es true -->
+		<!-- Panel de Modificadores y Pago: Visible solo si ShowModifierPanel es true -->
 		<StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10"
             Visibility="{Binding ShowModifierPanel, Converter={StaticResource BoolToVis}}">
 			<!-- ComboBox para Medio de Pago -->
 			<TextBlock Text="Medio de Pago:" VerticalAlignment="Center" Margin="5"/>
 			<ComboBox Width="150"
-              ItemsSource="{Binding PaymentMethods}"
-              SelectedItem="{Binding SelectedPaymentMethod}"
-              DisplayMemberPath="Name"
-              Margin="5"/>
+            ItemsSource="{Binding PaymentMethods}"
+            SelectedItem="{Binding SelectedPaymentMethod}"
+            DisplayMemberPath="Name"
+            Margin="5"/>
 
 			<!-- TextBox para Número de Transacción -->
 			<TextBlock Text="Nº Transacción:" VerticalAlignment="Center" Margin="5"/>
 			<TextBox Width="150"
-             Text="{Binding TransactionNumber, UpdateSourceTrigger=PropertyChanged}"
-             Margin="5">
+           Text="{Binding TransactionNumber, UpdateSourceTrigger=PropertyChanged}"
+           Margin="5">
 				<TextBox.Style>
 					<Style TargetType="TextBox">
 						<Setter Property="Visibility" Value="Visible"/>
 						<Style.Triggers>
-							<!-- Si SelectedPaymentMethod es nulo, ocultar -->
 							<DataTrigger Binding="{Binding SelectedPaymentMethod}" Value="{x:Null}">
 								<Setter Property="Visibility" Value="Collapsed"/>
 							</DataTrigger>
-							<!-- Si SelectedPaymentMethod.Id es 1 (Efectivo), ocultar -->
 							<DataTrigger Binding="{Binding SelectedPaymentMethod.Id}" Value="1">
 								<Setter Property="Visibility" Value="Collapsed"/>
 							</DataTrigger>
@@ -143,27 +142,34 @@
 			<!-- ComboBox para Seleccionar Modificador -->
 			<TextBlock Text="Seleccione modificador:" VerticalAlignment="Center" Margin="5"/>
 			<ComboBox Width="150"
-              ItemsSource="{Binding Modifiers}"
-              SelectedItem="{Binding SelectedModifier}"
-              DisplayMemberPath="Name"
-              Margin="5"/>
+            ItemsSource="{Binding Modifiers}"
+            SelectedItem="{Binding SelectedModifier}"
+            DisplayMemberPath="Name"
+            Margin="5"/>
 			<!-- Mostrar el porcentaje del modificador seleccionado -->
 			<TextBlock Text="{Binding SelectedModifier.Percentage, StringFormat='Descuento: {0}%'}"
-               VerticalAlignment="Center" Margin="5"/>
+             VerticalAlignment="Center" Margin="5"/>
 			<!-- Mostrar el total final -->
 			<TextBlock Text="{Binding FinalTotal, StringFormat='Total Final: Q{0:N2}'}" 
-               VerticalAlignment="Center" Margin="5"/>
+             VerticalAlignment="Center" Margin="5"/>
 
-			<!-- Botón para Generar Recibo -->
+			<!-- Botón para Generar Recibo (imprimir) -->
 			<Button Content="Generar Recibo" Margin="5" Padding="5"
-            Command="{Binding PrintReceiptCommand}"
-            IsEnabled="{Binding CanGenerateReceipt}"/>
+          Command="{Binding PrintReceiptCommand}"
+          IsEnabled="{Binding CanGenerateReceipt}"/>
 
-			<!-- Botón para Generar Nuevo Recibo (reiniciar) -->
+			<!-- Botón para Guardar Venta sin imprimir (se muestra solo si la venta aún no fue guardada) -->
+			<Button Content="Guardar Venta" Margin="5" Padding="5"
+          Command="{Binding SaveSaleCommand}"
+          Visibility="{Binding SaveSaleButtonVisibility}"
+          IsEnabled="{Binding CanGenerateReceipt}"/>
+
+			<!-- Botón para Generar Nuevo Recibo (se muestra cuando ya se guardó la venta) -->
 			<Button Content="Generar Nuevo Recibo" Margin="5" Padding="5"
-            Command="{Binding NewReceiptCommand}"/>
-
+          Command="{Binding NewReceiptCommand}"
+          Visibility="{Binding NewReceiptButtonVisibility}"/>
 		</StackPanel>
+
 
 	</Grid>
 </UserControl>

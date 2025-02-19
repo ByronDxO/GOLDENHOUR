@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\view\\generatereceiptview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:view\\generatereceiptview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\viewmodel\\consultadatosviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:viewmodel\\consultadatosviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\viewmodel\\generatereceiptviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:viewmodel\\generatereceiptviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\repositories\\modifierrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:repositories\\modifierrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\repositories\\meanpaymentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:repositories\\meanpaymentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\repositories\\receiptrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:repositories\\receiptrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\repositories\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:repositories\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|c:\\users\\byron\\onedrive\\desktop\\proyectos\\goldenhour\\goldenhour\\view\\consultadatosview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{524AA95C-C25E-43C4-A885-BD5D79AF38A7}|GoldenHour.csproj|solutionrelative:view\\consultadatosview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,27 +42,79 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GenerateReceiptViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\ViewModel\\GenerateReceiptViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModel\\GenerateReceiptViewModel.cs",
-              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\ViewModel\\GenerateReceiptViewModel.cs",
-              "RelativeToolTip": "ViewModel\\GenerateReceiptViewModel.cs",
-              "ViewState": "AQIAAKgAAAAAAAAAAAAUwLcAAAAeAAAA",
+              "DocumentIndex": 2,
+              "Title": "MeanPaymentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Repositories\\MeanPaymentRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\MeanPaymentRepository.cs",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Repositories\\MeanPaymentRepository.cs",
+              "RelativeToolTip": "Repositories\\MeanPaymentRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T21:44:38.224Z",
+              "WhenOpened": "2025-02-19T01:36:19.211Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ModifierRepository.cs",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Repositories\\ModifierRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\ModifierRepository.cs",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Repositories\\ModifierRepository.cs",
+              "RelativeToolTip": "Repositories\\ModifierRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAH8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T01:36:04.028Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ConsultaDatosView.xaml",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\View\\ConsultaDatosView.xaml",
+              "RelativeDocumentMoniker": "View\\ConsultaDatosView.xaml",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\View\\ConsultaDatosView.xaml",
+              "RelativeToolTip": "View\\ConsultaDatosView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-19T01:20:15.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ReceiptRepository.cs",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Repositories\\ReceiptRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\ReceiptRepository.cs",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Repositories\\ReceiptRepository.cs",
+              "RelativeToolTip": "Repositories\\ReceiptRepository.cs",
+              "ViewState": "AQIAAHUAAAAAAAAAAAAYwI0AAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T01:14:18.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CategoryRepository.cs",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Repositories\\CategoryRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\CategoryRepository.cs",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\Repositories\\CategoryRepository.cs",
+              "RelativeToolTip": "Repositories\\CategoryRepository.cs",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAAwHAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T00:56:48.102Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GenerateReceiptView.xaml",
-              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\View\\GenerateReceiptView.xaml",
-              "RelativeDocumentMoniker": "View\\GenerateReceiptView.xaml",
-              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\View\\GenerateReceiptView.xaml",
-              "RelativeToolTip": "View\\GenerateReceiptView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-12T21:43:21.383Z",
+              "Title": "ConsultaDatosViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\ViewModel\\ConsultaDatosViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModel\\ConsultaDatosViewModel.cs",
+              "ToolTip": "C:\\Users\\byron\\OneDrive\\Desktop\\Proyectos\\GOLDENHOUR\\GoldenHour\\ViewModel\\ConsultaDatosViewModel.cs",
+              "RelativeToolTip": "ViewModel\\ConsultaDatosViewModel.cs",
+              "ViewState": "AQIAAKIBAAAAAAAAAAAAwMIBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-17T06:38:40.436Z",
               "EditorCaption": ""
             }
           ]

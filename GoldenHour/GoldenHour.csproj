@@ -155,6 +155,7 @@
     <Compile Include="CustomControls\BindablePasswordBox.xaml.cs">
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\DailySalesReport.cs" />
     <Compile Include="Model\GT_Category.cs" />
     <Compile Include="Model\GT_DetailReceipt.cs" />
     <Compile Include="Model\GT_MeanPayment.cs" />
