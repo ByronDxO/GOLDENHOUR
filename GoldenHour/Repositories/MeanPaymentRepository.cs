@@ -41,5 +41,56 @@ namespace GoldenHour.Repositories
             }
             return payments;
         }
+
+
+        public void UpdateMeanPayment(GT_MeanPayment payment)
+        {
+            using (var conn = GetConnection())
+            {
+                string sql = @"
+            UPDATE GT_MeanPayment 
+            SET mep_name = @name,
+                mep_status = @status,
+                mep_date = @date
+            WHERE mep_idMeanPayment = @id";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@name", payment.mep_name);
+                    cmd.Parameters.AddWithValue("@status", payment.mep_status.HasValue ? (object)payment.mep_status.Value : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@date", payment.mep_date.HasValue ? (object)payment.mep_date.Value : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@id", payment.mep_idMeanPayment);
+                    conn.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    conn.Close();
+
+                    if (rowsAffected == 0)
+                    {
+                        throw new Exception("No se actualizó el medio de pago. Verifica los datos ingresados.");
+                    }
+                }
+            }
+        }
+
+        public void DeleteMeanPayment(int meanPaymentId)
+        {
+            using (var conn = GetConnection())
+            {
+                string sql = "DELETE FROM GT_MeanPayment WHERE mep_idMeanPayment = @id";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", meanPaymentId);
+                    conn.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    conn.Close();
+
+                    if (rowsAffected == 0)
+                    {
+                        throw new Exception("No se eliminó el medio de pago. Verifica que el registro exista.");
+                    }
+                }
+            }
+        }
+
+
     }
 }

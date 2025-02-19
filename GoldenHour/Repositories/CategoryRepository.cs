@@ -80,6 +80,53 @@ namespace GoldenHour.Repositories
             return categories;
         }
 
+        public void UpdateCategory(GT_Category category)
+        {
+            using (var conn = GetConnection())
+            {
+                string sql = @"
+            UPDATE GT_Category 
+            SET cat_name = @name, 
+                cat_description = @description,
+                cat_status = @status,
+                cat_date = @date
+            WHERE cat_idCategory = @id";
+                using (var cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@name", category.cat_name);
+                    cmd.Parameters.AddWithValue("@description", string.IsNullOrEmpty(category.cat_description) ? (object)DBNull.Value : category.cat_description);
+                    cmd.Parameters.AddWithValue("@status", category.cat_status.HasValue ? (object)category.cat_status.Value : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@date", category.cat_date.HasValue ? (object)category.cat_date.Value : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@id", category.cat_idCategory);
+                    conn.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    conn.Close();
+
+                    if (rowsAffected == 0)
+                    {
+                        // Puedes lanzar una excepción o mostrar un mensaje
+                        throw new Exception("No se actualizó ninguna categoría. Verifica los datos ingresados.");
+                    }
+                }
+            }
+        }
+
+        public void DeleteCategory(int categoryId)
+        {
+            using (var conn = GetConnection())
+            {
+                string sql = "DELETE FROM GT_Category WHERE cat_idCategory = @id";
+                using (var cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", categoryId);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        }
+
+
 
     }
 }
